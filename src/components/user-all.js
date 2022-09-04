@@ -30,8 +30,7 @@ export default class UserAll extends React.Component {
     return (
      
       <section className="containerList all">
-        
-        <CustomSelect/>
+      
         <Container>
            <h1>liste de 24 utilistateur par order alphabetique</h1>
 
