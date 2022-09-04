@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table } from 'react-bootstrap'
 import { Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import SelectChoice from './select'
  
 
 
@@ -30,7 +30,7 @@ export default class UserAll extends React.Component {
     return (
      
       <section className="containerList all">
-      
+      <SelectChoice/>
         <Container>
            <h1>liste de 24 utilistateur par order alphabetique</h1>
 
