@@ -1,6 +1,3 @@
-body{
-   // font-size: 10px !important;
-}
 table{
     margin-top: 10px;
     margin-bottom: 50px;
@@ -9,11 +6,17 @@ table{
 section{
     height: 100%;
     background-color: #282c34;
-    .all{
-        background-color: bisque;
-    }
 }
 .containerList{
     color: white;
     
+}
+.tableau tr.FR.Active{
+    background-color: rgb(28, 10, 129) !important;
+}
+.table tr.US.Active{
+    background-color: green !important;
+}
+.white-color{
+    color: white !important;
 }

@@ -1,17 +1,21 @@
-import React , { useState }from "react";
+import React from "react";
 import axios from "axios";
 import { Table } from 'react-bootstrap'
 import { Container} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SelectChoice from './select'
- 
+
+import Child from './Child'
 
 
 export default class UserAll extends React.Component {
-  state = {
-    personsall: []
+
+  constructor(props){
+    super(props)
+    this.state = {
+      personsall: [],
+      nat: "",
+    }
   }
-  
 
   componentDidMount() {
     axios.get(`https://randomuser.me/api/?results=24&seed=abc&nat=fr,us`)
@@ -22,20 +26,18 @@ export default class UserAll extends React.Component {
         console.log(personsall);
       })
   }
-  
-
-
-
+  handleCallback = (childData) =>{
+    this.setState({nat: childData})
+  }
   render() {
-    return (
-     
-      <section className="containerList all">
-      <SelectChoice/>
-        <Container>
-           <h1>liste de 24 utilistateur par order alphabetique</h1>
+    const {nat} = this.state;
 
-           
-        <Table variant="dark" responsive hover size="xs">
+    return (
+     <section className="containerList all">
+      <Child parentCallback = {this.handleCallback}/> 
+        <Container>
+        <h1>liste de 24 utilistateur par order alphabetique</h1>
+        <Table className="white-color" responsive size="xs">
           <thead>
             <tr>
               <th>Nom</th>
@@ -45,9 +47,10 @@ export default class UserAll extends React.Component {
               <th>Photo</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="tableau">
         { this.state.personsall.map(personall => 
-          <tr data-nat={personall.nat} key={personall.id.value}>
+          <tr key={personall.id.value} data-nat={personall.nat} className={personall.nat === `${nat}` ? `${personall.nat} Active`  : "Inactive" }  >
+            
             <td > {personall.name.first}</td>
             <td > {personall.phone}</td>
             <td > {personall.email}</td>

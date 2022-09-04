@@ -4,7 +4,9 @@ import UserDetail from './components/user-detail'
 import UserAll from './components/user-all'
 
 
+
 function App() {
+  
   return (
     <div className="App">
         <UserAll/>
